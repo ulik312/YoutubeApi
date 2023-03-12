@@ -16,7 +16,8 @@ data class Item(
     val etag: String,
     val id: String,
     val kind: String,
-    val snippet: Snippet )
+    val snippet: Snippet
+)
 
 data class ContentDetails(
     val itemCount: Int
@@ -30,7 +31,6 @@ data class Maxres(
     val url: String,
     val width: Int
 )
-
 data class Medium(
     val height: Int,
     val url: String,
@@ -49,7 +49,6 @@ data class Snippet(
     val thumbnails: Thumbnails,
     val title: String
 )
-
 data class Standard(
     val height: Int,
     val url: String,

@@ -10,8 +10,6 @@ import com.bumptech.glide.Glide
 class ItemAdapter(): RecyclerView.Adapter<ItemAdapter.OnClickedViewHolder>() {
     private val selectedvideos = arrayListOf<Item>()
 
-
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): OnClickedViewHolder {
         return OnClickedViewHolder(ItemsSelectedBinding.inflate(LayoutInflater.from(parent.context),
             parent,false))

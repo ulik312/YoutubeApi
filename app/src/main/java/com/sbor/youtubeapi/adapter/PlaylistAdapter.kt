@@ -5,7 +5,6 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.sbor.youtubeapi.databinding.ItemPlaylistBinding
 import com.sbor.youtubeapi.model.Item
-import com.sbor.youtubeapi.model.Playlists
 import com.bumptech.glide.Glide
 import kotlin.reflect.KFunction1
 

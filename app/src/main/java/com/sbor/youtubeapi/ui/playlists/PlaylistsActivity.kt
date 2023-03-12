@@ -18,7 +18,6 @@ import com.sbor.youtubeapi.model.Item
 class PlaylistsActivity: BaseActivity<PlaylistsMainBinding, PlaylistsViewModel>() {
     private lateinit var adapter:PlaylistAdapter
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         adapter = PlaylistAdapter(onItemClick = this::onItemClick)
@@ -28,7 +27,6 @@ class PlaylistsActivity: BaseActivity<PlaylistsMainBinding, PlaylistsViewModel>(
     override val viewModel: PlaylistsViewModel by lazy {
         ViewModelProvider(this)[PlaylistsViewModel::class.java]
     }
-
 
     override fun inflateViewBinding(inflater: LayoutInflater): PlaylistsMainBinding {
         return PlaylistsMainBinding.inflate(layoutInflater)

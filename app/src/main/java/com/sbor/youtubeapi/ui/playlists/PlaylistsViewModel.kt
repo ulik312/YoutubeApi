@@ -2,7 +2,6 @@ package com.sbor.youtubeapi.ui.playlists
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.sbor.youtubeapi.BuildConfig
 import com.sbor.youtubeapi.model.Playlists
 import com.sbor.youtubeapi.base.BaseViewModel
 import com.sbor.youtubeapi.remote.ApiService
@@ -26,7 +25,7 @@ open class PlaylistsViewModel: BaseViewModel() {
             com.sbor.youtubeapi.BuildConfig.API_KEY,
             "UCWOA1ZGywLbqmigxE4Qlvuw",
             "snippet,contentDetails",
-            50
+            40
         )
             .enqueue(object : Callback<Playlists> {
                 override fun onResponse(call: Call<Playlists>, response: Response<Playlists>) {
@@ -43,6 +42,5 @@ open class PlaylistsViewModel: BaseViewModel() {
             })
         return data
     }
-
 
 }
