@@ -63,7 +63,8 @@ class PlaylistsActivity: BaseActivity<PlaylistsMainBinding, PlaylistsViewModel>(
         }
         binding.connectionContainer.isVisible = !isConnection
 
+        //com.sbor.youtubeapi.BuildConfig
     }
 
 }
-//com.sbor.youtubeapi.BuildConfig
+
