@@ -1,17 +1,21 @@
-package com.sbor.youtubeapi.adapter
+package com.sbor.youtubeapi.core.ui.ui.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.sbor.youtubeapi.databinding.ItemsSelectedBinding
-import com.sbor.youtubeapi.model.Item
+import com.sbor.youtubeapi.data.remote.model.Item
+import com.sbor.youtubeapi.databinding.ItemVideoBinding
 import com.bumptech.glide.Glide
+import java.text.SimpleDateFormat
+import java.util.Date
 
-class ItemAdapter(): RecyclerView.Adapter<ItemAdapter.OnClickedViewHolder>() {
+class VideoAdapter(): RecyclerView.Adapter<VideoAdapter.OnClickedViewHolder>() {
     private val selectedvideos = arrayListOf<Item>()
 
+
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): OnClickedViewHolder {
-        return OnClickedViewHolder(ItemsSelectedBinding.inflate(LayoutInflater.from(parent.context),
+        return OnClickedViewHolder(ItemVideoBinding.inflate(LayoutInflater.from(parent.context),
             parent,false))
     }
     fun setselectedList(list: List<Item>){
@@ -27,12 +31,14 @@ class ItemAdapter(): RecyclerView.Adapter<ItemAdapter.OnClickedViewHolder>() {
     override fun getItemCount(): Int {
         return selectedvideos.size
     }
-    inner class OnClickedViewHolder(private val binding: ItemsSelectedBinding) : RecyclerView.ViewHolder
+    inner class OnClickedViewHolder(private val binding: ItemVideoBinding) : RecyclerView.ViewHolder
         (binding.root){
         fun bind(items: Item) {
             Glide.with(binding.imgSelectVideo).load(items.snippet.thumbnails.medium.url).into(binding.imgSelectVideo)
-//            binding.numOfVideos.text = items.contentDetails.itemCount.toString()
-//            binding.tvDesc.text = items.snippet.title
+            val date : Date = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss").parse(items.snippet.publishedAt)
+            val duration =  SimpleDateFormat("HH:mm").format(date)
+            binding.timeOfVideo.text = duration
+            binding.tvDesc.text = items.snippet.title
 
         }
 

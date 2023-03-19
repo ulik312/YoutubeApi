@@ -6,6 +6,7 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
+        android:name=".App"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -16,10 +17,10 @@
         android:theme="@style/Theme.YoutubeApi"
         tools:targetApi="31" >
         <activity
-            android:name=".detail.PlaylistDetailActivity"
+            android:name=".core.ui.ui.detail.PlaylistDetailActivity"
             android:exported="false"/>
         <activity
-            android:name=".ui.playlists.PlaylistsActivity"
+            android:name=".core.ui.ui.playlists.PlaylistsActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.playlists.PlaylistsActivity">
+    tools:context=".core.ui.ui.playlists.PlaylistsActivity">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view"
@@ -12,18 +12,6 @@
         android:layout_height="match_parent"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         tools:listitem="@layout/item_playlist"/>
-
-    <LinearLayout
-        android:id="@+id/connection_container"
-        android:layout_width="match_parent"
-        android:visibility="gone"
-        android:layout_height="match_parent">
-
-        <include
-            android:id="@+id/connection_view"
-            layout="@layout/uncluded_layout" />
-
-    </LinearLayout>
 
     <ProgressBar
         android:id="@+id/progress_bar"
@@ -33,6 +21,18 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <LinearLayout
+        android:id="@+id/connection_container"
+        android:layout_width="match_parent"
+        android:visibility="gone"
+        android:layout_height="match_parent">
+
+        <include
+            android:id="@+id/connection_view"
+            layout="@layout/uncluded_layout"/>
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,5 +1,6 @@
-package com.sbor.youtubeapi.remote
+package com.sbor.youtubeapi.core.ui.network
 
+import com.sbor.youtubeapi.data.remote.ApiService
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit

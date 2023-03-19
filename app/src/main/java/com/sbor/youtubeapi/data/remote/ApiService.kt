@@ -1,7 +1,9 @@
-package com.sbor.youtubeapi.remote
+package com.sbor.youtubeapi.data.remote
 
-import com.sbor.youtubeapi.model.PlaylistItem
-import com.sbor.youtubeapi.model.Playlists
+import android.accounts.AuthenticatorDescription
+import com.sbor.youtubeapi.data.remote.model.Localized
+import com.sbor.youtubeapi.data.remote.model.PlaylistItem
+import com.sbor.youtubeapi.data.remote.model.Playlists
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Query
@@ -22,6 +24,5 @@ interface ApiService {
         @Query("part") part: String,
         @Query("maxResults") maxResults: Int,
         @Query("playlistId") id: String,
-    ):Call<PlaylistItem>
-
+    ): Call<PlaylistItem>
 }

@@ -1,4 +1,4 @@
-package com.sbor.youtubeapi.base
+package com.sbor.youtubeapi.core.ui.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater

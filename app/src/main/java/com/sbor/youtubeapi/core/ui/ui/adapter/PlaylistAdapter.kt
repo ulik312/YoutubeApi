@@ -1,10 +1,11 @@
-package com.sbor.youtubeapi.adapter
+package com.sbor.youtubeapi.core.ui.ui.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.sbor.youtubeapi.databinding.ItemPlaylistBinding
-import com.sbor.youtubeapi.model.Item
+import com.sbor.youtubeapi.data.remote.model.Item
+import com.sbor.youtubeapi.data.remote.model.Playlists
 import com.bumptech.glide.Glide
 import kotlin.reflect.KFunction1
 
