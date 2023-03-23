@@ -17,8 +17,15 @@
         android:theme="@style/Theme.YoutubeApi"
         tools:targetApi="31" >
         <activity
+            android:name=".core.ui.ui.videoplayer.PlayerActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".core.ui.ui.detail.PlaylistDetailActivity"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".core.ui.ui.playlists.PlaylistsActivity"
             android:exported="true">

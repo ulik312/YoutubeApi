@@ -8,17 +8,16 @@ import com.sbor.youtubeapi.databinding.ItemVideoBinding
 import com.bumptech.glide.Glide
 import java.text.SimpleDateFormat
 import java.util.Date
+import kotlin.reflect.KFunction1
 
-class VideoAdapter(): RecyclerView.Adapter<VideoAdapter.OnClickedViewHolder>() {
+class VideoAdapter(val onVideoClick: KFunction1<Item, Unit>) : RecyclerView.Adapter<VideoAdapter.OnClickedViewHolder>() {
     private val selectedvideos = arrayListOf<Item>()
-
-
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): OnClickedViewHolder {
         return OnClickedViewHolder(ItemVideoBinding.inflate(LayoutInflater.from(parent.context),
             parent,false))
     }
-    fun setselectedList(list: List<Item>){
+    fun setselectedList(list: List<Item>) {
         selectedvideos.addAll(list)
         notifyDataSetChanged()
 
@@ -39,6 +38,10 @@ class VideoAdapter(): RecyclerView.Adapter<VideoAdapter.OnClickedViewHolder>() {
             val duration =  SimpleDateFormat("HH:mm").format(date)
             binding.timeOfVideo.text = duration
             binding.tvDesc.text = items.snippet.title
+
+            itemView.setOnClickListener {
+                onVideoClick(items)
+            }
 
         }
 

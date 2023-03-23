@@ -8,7 +8,6 @@ import com.sbor.youtubeapi.data.remote.model.Playlists
 
 open class PlaylistsViewModel: BaseViewModel() {
 
-
     fun getplaylist(): LiveData<Resource<Playlists>> {
         return repozitory.getPlayLists()
     }

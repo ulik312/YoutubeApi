@@ -16,8 +16,7 @@ data class Item(
     val etag: String,
     val id: String,
     val kind: String,
-    val snippet: Snippet
-)
+    val snippet: Snippet, )
 
 data class ContentDetails(
     val itemCount: Int

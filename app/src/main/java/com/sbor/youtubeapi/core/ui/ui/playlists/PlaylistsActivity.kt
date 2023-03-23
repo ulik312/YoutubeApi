@@ -7,14 +7,13 @@ import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.lifecycle.ViewModelProvider
 import com.sbor.youtubeapi.R
+import com.sbor.youtubeapi.databinding.PlaylistsMainBinding
+import com.sbor.youtubeapi.internet.Connection
 import com.sbor.youtubeapi.core.ui.network.result.Status
 import com.sbor.youtubeapi.core.ui.ui.BaseActivity
 import com.sbor.youtubeapi.core.ui.ui.adapter.PlaylistAdapter
 import com.sbor.youtubeapi.core.ui.ui.detail.PlaylistDetailActivity
-import com.sbor.youtubeapi.databinding.PlaylistsMainBinding
-import com.sbor.youtubeapi.internet.Connection
 import com.sbor.youtubeapi.data.remote.model.Item
-
 
 class PlaylistsActivity: BaseActivity<PlaylistsMainBinding, PlaylistsViewModel>() {
     private lateinit var adapter: PlaylistAdapter
@@ -28,7 +27,6 @@ class PlaylistsActivity: BaseActivity<PlaylistsMainBinding, PlaylistsViewModel>(
     override val viewModel: PlaylistsViewModel by lazy {
         ViewModelProvider(this)[PlaylistsViewModel::class.java]
     }
-
 
     override fun inflateViewBinding(inflater: LayoutInflater): PlaylistsMainBinding {
         return PlaylistsMainBinding.inflate(layoutInflater)
@@ -45,9 +43,8 @@ class PlaylistsActivity: BaseActivity<PlaylistsMainBinding, PlaylistsViewModel>(
             when(it.status){
                 Status.SUCCESS ->{
                     binding.recyclerView.adapter = adapter
-                    adapter.setItem(it.data?.items as ArrayList<Item>)
+                    adapter.setItem(it!!.data!!.items)
                     viewModel.loading.postValue(false)
-//            Toast.makeText(this, it.etag.toString(), Toast.LENGTH_SHORT).show()
                 }
                 Status.LOADING ->{
                     viewModel.loading.postValue(true)
@@ -82,13 +79,13 @@ class PlaylistsActivity: BaseActivity<PlaylistsMainBinding, PlaylistsViewModel>(
 
     private fun checkConnection() {
 
+
         val isConnection = Connection.isNetworkAvailable(this)
         if (!isConnection) {
             Toast.makeText(this, getString(R.string.not_connection_message), Toast.LENGTH_SHORT)
                 .show()
         }
         binding.connectionContainer.isVisible = !isConnection
-        //com.sbor.youtubeapi.BuildConfig = ulikresultget
-    }
 
+    }
 }
