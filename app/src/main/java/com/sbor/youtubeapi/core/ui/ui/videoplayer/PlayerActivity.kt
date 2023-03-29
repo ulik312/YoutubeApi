@@ -1,5 +1,6 @@
 package com.sbor.youtubeapi.core.ui.ui.videoplayer
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.util.SparseArray
 import android.view.LayoutInflater
@@ -66,9 +67,10 @@ class PlayerActivity : BaseActivity<ActivityPlayerBinding, PlayerViewModel>() {
             dialog.show()
         }
     }
+    @SuppressLint("StaticFieldLeak")
     private fun initializePlayer() {
         player = SimpleExoPlayer.Builder(this).build()
-        val videoUrl = "https://www.youtube.com/watch?v=GG_aOIG1JWg"
+        val videoUrl = "https://www.youtube.com/watch?v=$id"
         object : YouTubeExtractor(this){
             override fun onExtractionComplete(
                 ytFiles: SparseArray<YtFile>?,

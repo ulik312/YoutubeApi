@@ -49,7 +49,7 @@ class PlaylistDetailActivity : BaseActivity<ActivityPlaylistDetailBinding, Detai
     }
     private fun onVideoClick(item : Item){
         val intent = Intent(this@PlaylistDetailActivity, PlayerActivity::class.java)
-        intent.putExtra("id_video", item.id)
+        intent.putExtra("id_video", item.contentDetails.videoId)
         intent.putExtra("title_video", item.snippet.title)
         intent.putExtra("description_video",item.snippet.description)
         startActivity(intent)
